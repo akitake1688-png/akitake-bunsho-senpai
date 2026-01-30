@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秋武文书哨兵 | Bunsho Senpai V1.0</title>
+    <link rel="stylesheet" href="style.css?v=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+</head>
+<body>
+    <div class="glass-container">
+        <aside class="side-panel">
+            <div class="avatar-wrapper">
+                <img src="profile.jpg" class="avatar-main" alt="秋武" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Akitake'">
+            </div>
+            <div class="persona-name">秋武文书哨兵</div>
+            <div class="nav-group">
+                <button class="nav-btn" data-preset="志望理由书">📄 志望理由书审计</button>
+                <button class="nav-btn" data-preset="研究计划书">📝 研究计划书审计</button>
+                <button class="nav-btn" data-preset="小论文">📚 小论文逻辑审计</button>
+                <button class="nav-btn" id="upload-btn">📤 上传您的文书</button>
+            </div>
+            <button id="clear-btn" class="clear-btn">🧹 哨兵物理清除</button>
+        </aside>
+        <main class="chat-viewport">
+            <div class="messages-area" id="chat-container">
+                <div class="msg-row bot">
+                    <div class="bubble">
+                        <b>【秋武文书哨兵 V1.0】</b><br>
+                        专注志望理由书・研究计划书・小论文的东大基准审计。<br><br>
+                        ● 支持 PDF/Word/TXT 上传<br>
+                        ● 逐步推理 + 实战案例诊断<br>
+                        ● 温和建议 + 修改范例 + 伏笔埋设<br><br>
+                        请上传文书，或输入关键词开始。<br>
+                        深度逐段重构请加微信 qiuwu999。
+                    </div>
+                </div>
+            </div>
+            <div class="input-bar">
+                <input type="file" id="file-upload" accept=".txt,.pdf,.docx,.doc" style="display:none">
+                <input type="text" id="user-input" placeholder="输入文书片段或关键词，或直接上传..." autofocus autocomplete="off">
+                <button id="send-btn">发送</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js?v=1.0"></script>
+</body>
+</html>
