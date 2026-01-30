@@ -1,50 +1,70 @@
 [
   {
-    "id": "WELCOME_BUNSHO",
+    "id": "WELCOME_LIMIT",
+    "priority": 5000,
+    "keywords": ["你好", "开始", "文书", "上传", "审计", "志望理由书", "研究计划书", "小论文"],
+    "response": "<b>【秋武文书哨兵 V1.0 - 极限规则版】</b>[BREAK]专注东大基准审计。[BREAK]● 1000+关键词权重规则[BREAK]● 动态模板组合 + 随机实战范文[BREAK]● 逐步推理 + 自纠错模拟[BREAK]请上传文书开始。"
+  },
+  {
+    "id": "RULES_GROUP_MOTIVATION",
     "priority": 4000,
-    "keywords": ["你好", "开始", "文书", "上传", "审计", "志望理由书", "研究计划书", "小论文", "修改", "重构"],
-    "response": "<b>【秋武文书哨兵 V1.0】</b>[BREAK]专注志望理由书・研究计划书・小论文的东大基准审计。[BREAK]● 支持 PDF/Word/TXT 上传初步扫描[BREAK]● 逐步推理 + 实战案例诊断[BREAK]● 温和建议 + 修改范例 + 伏笔埋设[BREAK][BREAK]请上传您的文书，或输入关键词开始。[BREAK]深度逐段重构请加微信 qiuwu999。"
+    "rules": [
+      {"keyword": "きっかけ|きっかけは", "weight": 8, "type": "core", "desc": "动机触发点"},
+      {"keyword": "興味|好き|感動", "weight": 6, "type": "core", "desc": "兴趣情感"},
+      {"keyword": "絵を描く|自然の美しさ|初音ミク", "weight": 10, "type": "specific", "desc": "具体兴趣示例"},
+      {"keyword": "環境|文化|政策|著作権|表現の自由", "weight": 7, "type": "policy", "desc": "学部契合"},
+      {"keyword": "卒業後|将来|進みたい|貢献|活躍", "weight": 6, "type": "future", "desc": "展望"}
+    ]
   },
   {
-    "id": "SERVICE_DOCS_BASE",
+    "id": "RULES_GROUP_STRUCTURE",
+    "priority": 3900,
+    "rules": [
+      {"keyword": "\\n\\n", "weight": -5, "type": "negative", "desc": "段落松散（换行过多）"},
+      {"keyword": "しかし|だが|一方で|一方", "weight": 5, "type": "transition", "desc": "逻辑连接词"},
+      {"keyword": "例えば|例", "weight": 4, "type": "example", "desc": "具体例支持"}
+    ]
+  },
+  {
+    "id": "TEMPLATE_HIGH_SCORE",
     "priority": 3500,
-    "keywords": ["志望理由书", "文书", "修改", "故事线", "逻辑留白", "重构", "研究计划", "研究計画書", "添削", "模板"],
-    "response": "<b>【东大基准文书重构】</b>[BREAK]致命错误：模板化、泛叙事、无问题意识。[BREAK]正确路径：个人兴趣 + 教授领域 + 小切口深挖掘 + 逻辑伏笔。[BREAK]实战案例：动机从“自然美 + 社区力量”触发，契合“环境+文化政策”。[BREAK]上传后，我将逐段诊断 + 给出个性化范例。"
+    "keywords": ["high_score"],
+    "response": "整体优秀！动机鲜明、契合度高、结构清晰，已具备很强竞争力。建议微调伏笔埋设。"
   },
   {
-    "id": "LOGIC_SURGERY_BUNSHO",
+    "id": "TEMPLATE_MED_SCORE",
     "priority": 3400,
-    "keywords": ["逻辑手术", "断层", "漏洞", "论证", "推理", "逻辑问题"],
-    "response": "<b>【逻辑审计】</b>[BREAK]基于博弈论 + 实战案例，定位论证薄弱点。[BREAK]逐步推理：1. 提取关键词 2. 分析链条 3. 检查Gap 4. 自纠错 5. 建议改写。[BREAK]概念模糊=学术失格。上传文书，我帮您重构。"
+    "keywords": ["med_score"],
+    "response": "基础扎实，方向明确，还有上升空间。建议强化动机细节 + 段落细分。"
   },
   {
-    "id": "CASE_ZHIWANG_SUCCESS",
+    "id": "TEMPLATE_LOW_SCORE",
+    "priority": 3300,
+    "keywords": ["low_score"],
+    "response": "动机真挚，但结构与政策结合可进一步打磨。建议补充具体行动计划。"
+  },
+  {
+    "id": "FANWEN_MOTIVATION_ENV",
     "priority": 3200,
-    "keywords": ["志望理由书范文", "成功案例", "动机", "契合", "伏笔"],
-    "response": "<b>【实战成功范文】</b>[BREAK]PDF案例：动机“绘画中自然美 + 初音ミク社区” → 契合综合政策“环境+文化”。[BREAK]建议：在开头埋设教授论文引用，诱导面试提问。[BREAK]上传您的初稿，我对比给出个性化改写。"
+    "keywords": ["環境", "自然", "絵", "美しさ"],
+    "response": "建议示例（环境向）：私が総合政策に興味を持ったきっかけは、絵を描く中で感じた自然の美しさと、初音ミクの音楽を通じて生まれたコミュニティの力です。これらを支える政策を学び、環境と文化の両面から地域活性化に貢献したいと考えています。"
   },
   {
-    "id": "CASE_SMALL_PAPER",
+    "id": "FANWEN_MOTIVATION_CULTURE",
+    "priority": 3200,
+    "keywords": ["文化", "コミュニティ", "初音ミク", "表現"],
+    "response": "建议示例（文化向）：初音ミクのライブで多くの人が同じ文化を楽しむコミュニティに感動しました。この表現の自由と文化保護を支える政策を学びたいです。"
+  },
+  {
+    "id": "FANWEN_SMALL_PAPER_SIMPLIFY",
     "priority": 3100,
-    "keywords": ["小论文", "简化", "深い説明", "论证薄弱", "东大小论文"],
-    "response": "<b>【小论文逻辑基准】</b>[BREAK]东大真题强调：现象单純化 → 深い説明。[BREAK]检查：是否从具体例入手？是否避免泛化？[BREAK]逐步推理：1. 现象观察 2. 简化假设 3. 验证法則 4. 结论贡献。[BREAK]上传您的部分，我帮诊断 + 改写。"
+    "keywords": ["小論文", "単純化", "深い説明"],
+    "response": "小论文建议：从具体现象入手，逐步简化假设 → 验证规律 → 得出贡献。东大真题强调‘现象を単純化することで深い説明’。"
   },
   {
-    "id": "FILE_UPLOAD_GUIDE_BUNSHO",
-    "priority": 3000,
-    "keywords": ["上传", "文件", "文档", "PDF", "Word", "发给你", "怎么发", "附件"],
-    "response": "<b>【文书投喂通道】</b>[BREAK]点击左侧 📤 上传文书按钮，支持 PDF/Word/TXT。[BREAK]网页端提供初步诊断 + 建议 + 范文示例。[BREAK]要东大基准深度重构、逐段精修、伏笔设计，请加微信 qiuwu999 发送完整文档。[BREAK]数据安全：审计后物理级删除。"
-  },
-  {
-    "id": "SENTINEL_GATE_BUNSHO",
+    "id": "SENTINEL_GATE_LIMIT",
     "priority": 100,
-    "keywords": ["菜单", "帮助", "其他", "面试", "EJU", "编入", "费用"],
-    "response": "<b>【文书专区引导地图】</b>[BREAK]本卡专注文书审计（志望理由书・研究计划书・小论文）。[BREAK]若需面试/编入/EJU/费用等，请返回主卡或加微信 qiuwu999 切换专区。"
-  },
-  {
-    "id": "FALLBACK_BUNSHO",
-    "priority": 50,
-    "keywords": ["可以", "能不能", "会不会", "提供", "辅导", "教", "有没有", "帮", "指导"],
-    "response": "<b>【文书服务引导】</b>[BREAK]秋武文书哨兵专注志望理由书/研究计划书/小论文审计。[BREAK]请上传文档或输入关键词开始。[BREAK]深度一对一请加微信 qiuwu999。"
+    "keywords": ["菜单", "帮助", "其他"],
+    "response": "<b>【文书专区引导】</b>[BREAK]本卡专注文书审计。[BREAK]若需其他，请加微信 qiuwu999。"
   }
 ]
